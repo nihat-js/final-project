@@ -8,6 +8,7 @@ const player = new THREE.Mesh(geometry,material)
 
 
 player.userData= { 
+  speed : .05,
   lookMe : function (){
     camera.position.set(player.position.x , player.position.y+ 5 ,player.position.z + 5)
   }
