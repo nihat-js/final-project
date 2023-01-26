@@ -1,33 +1,33 @@
 import player from "../components/player";
-
-const downKeys = []
+let downKeys = []
 
 document.addEventListener('keydown', keyDown)
-document.addEventListener('keydown', keyUp)
+document.addEventListener('keyup', keyUp)
 
 function keyDown(e) {
   let key = e.key.toLowerCase()
-  keyDown.indexOf(key) == -1  ?   keyDown.push(key) : '' ;
+  downKeys.indexOf(key) == -1 ? downKeys.push(key) : '';
 }
 
-function keyUp(e){
+function keyUp(e) {
   let key = e.key.toLowerCase()
-  keyDown = keyDown.filter(item => item !== key)
+  downKeys = downKeys.filter(item => item !== key)
 }
 
-function userController(){
-  if (key.contains('w')){
+function keyboardActions() {
+  if (downKeys.indexOf('w') > -1) {
     player.position.z -= player.userData.speed
   }
-  else if (key.contains('s')){
+  if (downKeys.indexOf('s') > -1) {
     player.position.z += player.userData.speed
   }
-  else if (key.contains('d')){
+  if (downKeys.indexOf('d') > -1) {
     player.position.x += player.userData.speed
   }
-  else if (key.contains('a')){
+  if (downKeys.indexOf('a') > -1) {
     player.position.x -= player.userData.speed
   }
 }
 
-export default userController
+
+export default keyboardActions
